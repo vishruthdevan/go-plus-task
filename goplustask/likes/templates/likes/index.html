@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <style>
       .container {
+        font-family: "Tahoma", sans-serif;
         text-align: center;
         border: 2px;
         border-style: dotted;
@@ -23,24 +24,27 @@
   </head>
   <body>
     <div class="container">
+      <h1 style="margin-bottom: 100px">
+        Created by Vishruth Devan for the Go Plus Inc. Internship Assignment
+      </h1>
       <img
         id="likebtn"
         src="https://www.freeiconspng.com/uploads/youtube-like-button-png-11.png"
-        style="cursor: pointer; float: left; width: 400px"
+        style="cursor: pointer; float: left; width: 300px"
         alt="Like Button"
       />
       <img
         id="dislikebtn"
         src="https://www.freeiconspng.com/uploads/black-and-white-youtube-dislike-21.png"
-        style="cursor: pointer; float: right; width: 400px"
+        style="cursor: pointer; float: right; width: 300px"
         alt="Dislike Button"
       />
       <div style="clear: both; height: 50px"></div>
       <div style="float: left" class="likes">
-        <h1>Number of Likes = <span id="likes">{{ likes }}</span></h1>
+        <h2>Number of Likes = <span id="likes">{{ likes }}</span></h2>
       </div>
       <div style="float: right" class="dislikes">
-        <h1>Number of Dislikes = <span id="dislikes">{{ dislikes }}</span></h1>
+        <h2>Number of Dislikes = <span id="dislikes">{{ dislikes }}</span></h2>
       </div>
     </div>
   </body>

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Likes and Dislikes</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <style>
       .container {
         text-align: center;
@@ -23,14 +24,14 @@
   <body>
     <div class="container">
       <img
+        id="likebtn"
         src="https://www.freeiconspng.com/uploads/youtube-like-button-png-11.png"
-        onclick="alert('Like button pressed!')"
         style="cursor: pointer; float: left; width: 400px"
         alt="Like Button"
       />
       <img
+        id="dislikebtn"
         src="https://www.freeiconspng.com/uploads/black-and-white-youtube-dislike-21.png"
-        onclick="alert('Dislike button pressed!')"
         style="cursor: pointer; float: right; width: 400px"
         alt="Dislike Button"
       />
@@ -43,4 +44,30 @@
       </div>
     </div>
   </body>
+  <script>
+    let likes = parseInt(document.getElementById("likes").innerHTML);
+    let dislikes = parseInt(document.getElementById("dislikes").innerHTML);
+    document.getElementById("likebtn").addEventListener("click", () => {
+      likes++;
+      $.ajax({
+        type: "POST",
+        url: "/like/",
+        data: { likes: likes },
+        success: function (response) {
+          $("#likes").text(response["likes"]);
+        },
+      });
+    });
+    document.getElementById("dislikebtn").addEventListener("click", () => {
+      dislikes++;
+      $.ajax({
+        type: "POST",
+        url: "/dislike/",
+        data: { dislikes: dislikes },
+        success: function (response) {
+          $("#dislikes").text(response["dislikes"]);
+        },
+      });
+    });
+  </script>
 </html>
